@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+  
+<h1> {% block title %}Update recipe{% endblock %}</h1>
+
+{% block body %}
+<form method="POST" action="{{ url_for('recipe_update', recipe_id=recipe.id) }}">
+  <input type="text" name="name" value="{{recipe.name}}"/>
+  <textarea  name="description" rows="20" cols="100">{{recipe.description}}</textarea>
+  <input type="submit" value="Update recipe"/>
+</form>
+{% endblock %}
