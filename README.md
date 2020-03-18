@@ -5,3 +5,7 @@ Tarkoitus on luoda reseptikirja, jonka kauppalista-toimintoa voi käyttää kaup
 Alustava arkkitehtuurikuvaus sisältää alustavan tietokantakaavion tällä hetkellä. Ohessa linkki siihen:
 ![Alustava arkkitehtuurikuvaus](https://github.com/att78/reseptikirja/blob/master/Arkkitehtuurikuvaus.md)
 
+Sovellus löytyy nyt myös Herokusta:
+![Reseptikirja herokussa](https://reseptikirja2020.herokuapp.com/)
+
+
