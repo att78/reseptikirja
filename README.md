@@ -11,6 +11,6 @@ Alustava arkkitehtuurikuvaus sisältää alustavan tietokantakaavion tällä het
 
 Sovellus löytyy nyt myös Herokusta:
 
-![Reseptikirja herokussa](https://reseptikirja2020.herokuapp.com/)
+[Reseptikirja herokussa](https://reseptikirja2020.herokuapp.com/)
 
 
