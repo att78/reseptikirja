@@ -7,7 +7,7 @@ Koska sain palautetta aiheen laajuudesta, niin tein nyt tässä vaiheessa tälla
 viikko2: tietokantaan voi lisätä reseptin ja reseptiä voi muokata. reseptikirja on viety herokuun ja näyttäisi toimivan siellä.
 
 Alustava arkkitehtuurikuvaus sisältää alustavan tietokantakaavion tällä hetkellä. Ohessa linkki siihen:
-![Alustava arkkitehtuurikuvaus](https://github.com/att78/reseptikirja/blob/master/Arkkitehtuurikuvaus.md)
+![Alustava arkkitehtuurikuvaus](https://github.com/att78/reseptikirja/blob/master/documentation/Arkkitehtuurikuvaus.md)
 
 Sovellus löytyy nyt myös Herokusta:
 ![Reseptikirja herokussa](https://reseptikirja2020.herokuapp.com/)
