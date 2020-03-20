@@ -10,6 +10,7 @@ Alustava arkkitehtuurikuvaus sisältää alustavan tietokantakaavion tällä het
 ![Alustava arkkitehtuurikuvaus](https://github.com/att78/reseptikirja/blob/master/documentation/Arkkitehtuurikuvaus.md)
 
 Sovellus löytyy nyt myös Herokusta:
+
 ![Reseptikirja herokussa](https://reseptikirja2020.herokuapp.com/)
 
 
