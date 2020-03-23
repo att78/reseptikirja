@@ -5,6 +5,7 @@
 {% block title %}{{recipe.name}}{% endblock %}
 
 {% block body %}
+
  <p> {{recipe.description}}</p>
  <button method="GET" action="{{ url_for('recipe_update') }}">Update recipe</button>
   

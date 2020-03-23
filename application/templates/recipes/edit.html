@@ -3,9 +3,25 @@
 <h1> {% block title %}Update recipe{% endblock %}</h1>
 
 {% block body %}
-<form method="POST" action="{{ url_for('recipe_update', recipe_id=recipe.id) }}">
-  <input type="text" name="name" value="{{recipe.name}}"/>
-  <textarea  name="description" rows="20" cols="100">{{recipe.description}}</textarea>
-  <input type="submit" value="Update recipe"/>
+<form method="POST" action="{{ url_for('recipe_update', recipe_id=form.id) }}">
+  <table>
+    <tr>
+      <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name }}
+      </td>
+    </tr>
+    <tr>
+
+      <td>{{form.description.label}}</td>
+      <td>{{form.description(size=30, maxlength=50)}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Update recipe" />
+      </td>
+    </tr>
 </form>
 {% endblock %}
