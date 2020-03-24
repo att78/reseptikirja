@@ -29,6 +29,9 @@ def recipe_update(recipe_id):
     r = Recipe.query.get(recipe_id)
     form = RecipeForm(request.form)
 
+    if not form.validate():
+        return render_template("recipes/edit.html/", form = form)
+
     r.name = form.name.data
     r.description = form.description.data
     db.session().commit()
@@ -39,9 +42,11 @@ def recipe_update(recipe_id):
 def recipe_create():
 
     form = RecipeForm(request.form)
-    
     r = Recipe(form.name.data,form.description.data)
-	
+    
+    if not form.validate():
+        return render_template("recipes/new.html", form = form)
+          
     db.session().add(r)
     db.session().commit()
   
