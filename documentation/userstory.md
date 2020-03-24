@@ -1,15 +1,15 @@
-##Userstoryt
+## Userstoryt
 
 
-#Tapaus 1
+# Tapaus 1
 Käyttäjälta vaaditaan kirjautuminen. 
 
 
-#Tapaus 2
+# Tapaus 2
 Käyttäjä voi lisätä raaka-aineita ja reseptejä tietokantaan. 
 
-#Tapaus 3
+# Tapaus 3
 Käyttäjä voi muokata reseptejä ja tehdä lempireseptilistan. 
 
-#Tapaus 4
+# Tapaus 4
 Käyttäjä voi lisätä, muokata ja poistaa reseptejä lempireseptilistasta.
