@@ -1,6 +1,10 @@
 # reseptikirja
 
-Tarkoitus on luoda reseptikirja, joka pyörii herokussa. Käyttäjälta vaaditaan kirjautuminen. Käyttäjä voi lisätä raaka-aineita ja reseptejä tietokantaan. Käyttäjä voi muokata reseptejä ja tehdä lempireseptilistan. Käyttäjä voi lisätä, muokata ja poistaa reseptejä lempireseptilistasta. Ohessa päivitetty versio arkkitehtuurista: 
+Tarkoitus on luoda reseptikirja, joka pyörii herokussa.  Käyttäjätapaukset/User storyt on käsitelty omassa tiedostossaan. Ohessa linkki siihen: 
+
+![Käyttäjätapauksia](https://github.com/att78/reseptikirja/blob/master/documentation/userstory.md)
+
+Ohessa päivitetty versio arkkitehtuurista: 
 
 ![Päivitetty versio arkkitehtuurista](https://github.com/att78/reseptikirja/blob/master/documentation/updated.jpg)
 
