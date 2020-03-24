@@ -3,10 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Reseptikirja</title>
+  <title>Recipe book</title>
 </head>
 
 <body>
+
+  {% if current_user.is_authenticated %}
+  <p>
+  {{ current_user.name }} is logged in.<a href="{{ url_for('auth_logout') }}">log out</a>
+
+  </p>
+  {% else %}
+  <a href="{{ url_for('auth_login') }}">log in</a>
+  {% endif %}
+
+
+
 
  <h1> {% block title %}Title{% endblock %}</h1>
 
