@@ -33,4 +33,19 @@
       </td>
     </tr>
 </form>
+
+{% if form.favourite %}
+<form method = "POST" action = "{{url_for('recipe_remove_favourite', recipe_id=form.id)}}">
+  <p>Remove from favourite here</p>
+  <input type = "submit" value ="remove favourite" />
+
+</form>
+{% else %}
+<form method ="POST" action = "{{url_for('recipe_add_favourite', recipe_id=form.id) }}">
+  <p>Add to favourite here </p>
+<input type = "submit" value ="add favourite" />
+
+</form>
+{% endif %}
+
 {% endblock %}

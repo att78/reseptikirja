@@ -10,6 +10,7 @@ class RecipeForm(FlaskForm):
     name = StringField("Recipe name", [validators.Length(min=2)])
     description = TextAreaField("Recipe's description")
     id = 0
+    favourite = False
 
     
     class Meta:

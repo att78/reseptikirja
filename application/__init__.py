@@ -45,6 +45,8 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
+#tuodaan favouritet mukaan
+from application.favourites import tables
 
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()
