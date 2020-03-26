@@ -11,7 +11,12 @@ Ohessa päivitetty versio arkkitehtuurista:
 viikko2: tietokantaan voi lisätä reseptin ja reseptiä voi muokata. reseptikirja on viety herokuun ja näyttäisi toimivan siellä.
 viikko3: sovellukseen voi rekisteröityä ja kirjautua sekä sisään että ulos. Sovelluksessa voi kirjautuneena käyttäjänä valita reseptin lempireseptiksi tai poistaa lempiresepteistä.
 
-Sovelluksessä on käytössä testi-käyttäjätunnukset. Account: testi, salasana: testi. Samat tunnukset toimivat sekä sovellusta ajettaessa lokaalisti, että herokussa. 
+Sovelluksessä on käytössä testi-käyttäjätunnukset. 
+
+### Account: testi
+### salasana: testi 
+
+Samat tunnukset toimivat sekä sovellusta ajettaessa lokaalisti, että herokussa. 
 
 Sovellus löytyy Herokusta. :
 
