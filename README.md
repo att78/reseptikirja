@@ -9,6 +9,7 @@ Ohessa päivitetty versio arkkitehtuurista:
 ![Päivitetty versio arkkitehtuurista](https://github.com/att78/reseptikirja/blob/master/documentation/updated.jpg)
 
 viikko2: tietokantaan voi lisätä reseptin ja reseptiä voi muokata. reseptikirja on viety herokuun ja näyttäisi toimivan siellä.
+
 viikko3: sovellukseen voi rekisteröityä ja kirjautua sekä sisään että ulos. Sovelluksessa voi kirjautuneena käyttäjänä valita reseptin lempireseptiksi tai poistaa lempiresepteistä.
 
 Sovelluksessä on käytössä testi-käyttäjätunnukset. 
