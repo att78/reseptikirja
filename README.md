@@ -17,7 +17,7 @@ Sovelluksessä on käytössä testi-käyttäjätunnukset.
 ### Account: testi
 ### salasana: testi 
 
-Samat tunnukset toimivat sekä sovellusta ajettaessa lokaalisti, että herokussa. Sovellukseen voi tehdä halutessaan myös tunnukset ihan itse. Kannattaa kuitenkin huomkoida, että käyttäjätunnusten rekisteröinnissä tai kirjautumisessa ei ole validointia eli tämän saattaa saada rikki hyvin helposti. 
+Samat tunnukset toimivat sekä sovellusta ajettaessa lokaalisti, että herokussa. Sovellukseen voi tehdä halutessaan myös tunnukset ihan itse. Kannattaa kuitenkin huomioida, että käyttäjätunnusten rekisteröinnissä tai kirjautumisessa ei ole validointia eli tämän saattaa saada rikki hyvin helposti. 
 
 Sovellus löytyy Herokusta. :
 
