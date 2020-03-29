@@ -18,9 +18,9 @@ if os.environ.get("HEROKU"):
 
 # Muuten käytetään omaa tietokantaa
 else:
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///recipes.db"
-# Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
-app.config["SQLALCHEMY_ECHO"] = True
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///recipes.db"
+    # Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
+    app.config["SQLALCHEMY_ECHO"] = True
 
 # Luodaan db-olio, jota käytetään tietokannan käsittelyyn
 db = SQLAlchemy(app)
