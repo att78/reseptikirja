@@ -8,6 +8,16 @@ from flask_sqlalchemy import SQLAlchemy
 # Käytetään tasks.db-nimistä SQLite-tietokantaa. Kolme vinoviivaa
 # kertoo, tiedosto sijaitsee tämän sovelluksen tiedostojen kanssa
 # samassa paikassa
+
+# os herokua varten
+import os
+
+# Herokun tietokantaa käytetään jos ollaan herokussa
+if os.environ.get("HEROKU"):
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+
+# Muuten käytetään omaa tietokantaa
+else:
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///recipes.db"
 # Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
 app.config["SQLALCHEMY_ECHO"] = True
@@ -48,6 +58,9 @@ def load_user(user_id):
 #tuodaan favouritet mukaan
 from application.favourites import tables
 
-# Luodaan lopulta tarvittavat tietokantataulut
-db.create_all()
-
+# Luodaan lopulta tarvittavat tietokantataulut vain kerran
+# eli try-and-catchia käyttäen
+try: 
+    db.create_all()
+except:
+    pass
