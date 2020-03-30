@@ -142,6 +142,6 @@ dmypy.json
 cython_debug/
 tasks.db
 tasks.db
-recipes.db
+application/recipes.db
 accounts.db
 .vscode
