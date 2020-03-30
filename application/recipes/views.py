@@ -8,7 +8,9 @@ from application.auth.models import User
 
 @app.route("/recipes", methods=["GET"])
 def recipes_index():
-    return render_template("recipes/list.html", recipes = Recipe.query.all())
+
+
+    return render_template("recipes/list.html", recipes = Recipe.query.all(), best_user = Recipe.find_best_user())
 
 @app.route("/recipes/<recipe_id>/", methods=["GET"])
 @login_required
@@ -55,7 +57,8 @@ def recipe_create():
 
     form = RecipeForm(request.form)
     r = Recipe(form.name.data,form.description.data)
-    
+    r.creator = current_user.id
+
     if not form.validate():
         return render_template("recipes/new.html", form = form)
           
@@ -101,5 +104,6 @@ def recipe_remove(recipe_id):
     db.session().commit()
 
     return redirect(url_for("recipes_index"))
+
 
 

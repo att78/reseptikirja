@@ -19,5 +19,10 @@
     </tr>
     {% endfor %}
   </table>
+    {% if best_user %}
+
+    <p>User with most recipes: {{ best_user }}</p>
+    {% endif %}
+ 
 {% endblock %}
 

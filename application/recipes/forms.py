@@ -7,8 +7,8 @@ from application.recipes.models import Recipe
 
 
 class RecipeForm(FlaskForm):
-    name = StringField("Recipe name", [validators.Length(min=2)])
-    description = TextAreaField("Recipe's description")
+    name = StringField("Recipe name", [validators.Length(min=2, message="Name is too short")])
+    description = TextAreaField("Recipe's description", [validators.Length(min=20, message="Description is too short")])
     id = 0
     favourite = False
 
