@@ -90,3 +90,16 @@ def recipe_remove_favourite(recipe_id):
 
     return redirect(url_for("recipe_update", recipe_id=recipe_id))
 
+
+@app.route("/recipes/<recipe_id>/remove", methods = ["POST"])
+@login_required
+def recipe_remove(recipe_id):
+
+    recipe = Recipe.query.get(recipe_id)
+    db.session().delete(recipe)
+
+    db.session().commit()
+
+    return redirect(url_for("recipes_index"))
+
+
