@@ -2,11 +2,11 @@
 
 Tarkoitus on luoda reseptikirja, joka pyörii herokussa tai vastaavassa palvelussa. Käyttäjätapaukset/User storyt on käsitelty omassa tiedostossaan. Ohessa linkki siihen: 
 
-![Käyttäjätapauksia](https://github.com/att78/reseptikirja/blob/master/documentation/userstory.md)
+[Käyttäjätapauksia](https://github.com/att78/reseptikirja/blob/master/documentation/userstory.md)
 
 Ohessa päivitetty versio arkkitehtuurista: 
 
-![Päivitetty versio arkkitehtuurista](https://github.com/att78/reseptikirja/blob/master/documentation/updated.jpg)
+[Päivitetty versio arkkitehtuurista](https://github.com/att78/reseptikirja/blob/master/documentation/updated.jpg)
 
 viikko2: tietokantaan voi lisätä reseptin ja reseptiä voi muokata. reseptikirja on viety herokuun ja näyttäisi toimivan siellä.
 
