@@ -36,6 +36,9 @@ Käyttäjä voi yhdistää raaka-aineita resepteihin.
 
 Käyttäjä näkee lempireseptinsä listattuna main-sivullaan.
 
+## Tapaus 11
+
+Käyttäjä voi poistaa reseptin
 
 Tapaukset 3 ja 9 eivät vielä omaa minkäänlaista toiminnallisuutta, koska raaka-aine- ja raaka-aineet ja reseptit yhdistävät taulut puuttuvat. Tapaus 10 uupuu main-sivuun liittyvän toiminnallisuuden, vaikkakin lempireseptit ovat sinällään tietokannassa monen suhde moneen taulussa. Muihin kohtiin liittyy jo jonkinlainen toiminnallisuus, joskin esimerkiksi validoinnit ovat hyvin puutteelliset.
 
