@@ -1,42 +1,42 @@
 # Userstoryt
 
 
-## Tapaus 1
+### Tapaus 1
 Käyttäjälta voi kirjautua sisään. 
 
-## Tapaus 2
+### Tapaus 2
 Käyttäjä voi kirjautua ulos. 
 
-## Tapaus 3
+### Tapaus 3
 Käyttäjä voi lisätä raaka-aineita 
 
-## Tapaus 4
+### Tapaus 4
 Käyttäjä voi lisätä reseptejä tietokantaan. 
 
-## Tapaus 5
+### Tapaus 5
 Käyttäjä voi muokata reseptejä.
 
-## Tapaus 6
+### Tapaus 6
 
 Käyttäjä voi lisätä lempireseptilistaan reseptin. 
 
-## Tapaus 7
+### Tapaus 7
 
 Käyttäjä voi poistaa reseptejä lempireseptilistasta.
 
-## Tapaus 8
+### Tapaus 8
 
 Uusi käyttäjä voi rekisteröityä käyttäjäksi.
 
-## Tapaus 9
+### Tapaus 9
 
 Käyttäjä voi yhdistää raaka-aineita resepteihin.
 
-## Tapaus 10
+### Tapaus 10
 
 Käyttäjä näkee lempireseptinsä listattuna main-sivullaan.
 
-## Tapaus 11
+### Tapaus 11
 
 Käyttäjä voi poistaa reseptin
 
