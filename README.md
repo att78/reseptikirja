@@ -12,6 +12,8 @@ viikko2: tietokantaan voi lisätä reseptin ja reseptiä voi muokata. reseptikir
 
 viikko3: sovellukseen voi rekisteröityä ja kirjautua sekä sisään että ulos. Sovelluksessa voi kirjautuneena käyttäjänä valita reseptin lempireseptiksi tai poistaa lempiresepteistä.
 
+viikko4: sovelluksesssa voi myös poistaa reseptin eli resepteille on nyt täysi crud. Sovelluksessa on otettu bootstrap käyttöön. 
+
 Sovelluksessä on käytössä testi-käyttäjätunnukset. 
 
 ### Account: testi
