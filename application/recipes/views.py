@@ -1,8 +1,8 @@
-from application import app, db
+from application import app, db, login_manager, login_required
 from flask import redirect, render_template, request, url_for
 from application.recipes.models import Recipe
 from application.recipes.forms import RecipeForm
-from flask_login import login_required
+#from flask_login import login_required
 from flask_login import current_user
 from application.auth.models import User
 

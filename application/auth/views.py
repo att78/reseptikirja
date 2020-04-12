@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_user 
 from flask_login import logout_user
   
-from application import app, db
+from application import app, db, login_manager, login_required
 from application.auth.models import User
 from application.auth.forms import LoginForm
 from application.auth.forms import RegisterForm
@@ -40,9 +40,31 @@ def auth_register():
     
     account = User(form.name.data, form.username.data, form.password.data)
 
+    if User.count() == 0:
+        account.set_as_admin()
+
     db.session().add(account)
     db.session().commit()
     return redirect(url_for("auth_login"))
 
 
+@app.route("/auth/rights", methods =["GET"])
+@login_required
+def rights_listing():
+    users = User.query.all()
+    return render_template("auth/rights.html", users = users)
+
+@app.route("/auth/rights/<user_id>", methods =["POST"])
+@login_required(role="Admin")
+def set_as_admin(user_id):
+    
+    account = User.query.get(user_id)
+    if(account.is_admin()):
+        account.remove_from_admin()
+    else:
+        account.set_as_admin()
+
+    db.session().commit()       
+    users = User.query.all()
+    return render_template("auth/rights.html", users = users)
 

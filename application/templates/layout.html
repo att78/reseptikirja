@@ -24,6 +24,11 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('recipes_form') }}">Add a recipe</a>
         </li>
+        {% if current_user.is_admin() %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('rights_listing') }}">User listing</a>
+        </li>
+        {% endif %}
       </ul>
       <div class="form-inline mt-2 mt-md-0">
         {% if current_user.is_authenticated %}

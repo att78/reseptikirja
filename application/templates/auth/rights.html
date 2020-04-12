@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}User listing{% endblock %}
+
+{% block body %}
+<table>
+    <tr>
+        <th>Users listed below</th>
+
+        <th></th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.name }}</td>
+
+
+        <td>{% if user.is_admin() %}
+            Admin
+            {% else %}
+            Basic user
+            {% endif %}
+        </td>
+        <td>
+            <form method="POST" action="{{ url_for('set_as_admin', user_id=user.id) }}">
+                <input type="submit" value="Change role" />
+            </form>
+        </td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
