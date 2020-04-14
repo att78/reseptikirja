@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
-<h1> {% block title %}Update recipe{% endblock %}</h1>
+<h1> {% block title %}Update ingredient{% endblock %}</h1>
 
 {% block body %}
-<form method="POST" action="{{ url_for('recipe_update', recipe_id=form.id) }}">
+<form method="POST" action="{{ url_for('ingredient_update', ingredient_id=form.id) }}">
   <table>
     <tr>
       <td>
@@ -24,12 +24,12 @@
     </tr>
     <tr>
 
-      <td>{{form.description.label}}</td>
-      <td>{{form.description(size=50, maxlength=10000)}}</td>
+      <td>{{form.unit.label}}</td>
+      <td>{{form.unit(size=10, maxlength=10)}}</td>
     </tr>
     <tr>
       <td colspan="2">
-        <input type="submit" value="Update recipe" />
+        <input type="submit" value="Update ingredient" />
       </td>
     </tr>
     </tr>
@@ -37,7 +37,7 @@
 </form>
 
 
-<form method="POST" action="{{url_for('recipe_remove', recipe_id=form.id)}}">
+<form method="POST" action="{{url_for('ingredient_remove', ingredient_id=form.id)}}">
   <p>Do you want to remove this recipe?</p>
   <input type="submit" value="remove this recipe" />
 

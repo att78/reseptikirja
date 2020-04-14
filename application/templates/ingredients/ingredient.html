@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+
+
+{% block title %}{{ingredient.name}}{% endblock %}
+
+{% block body %}
+
+ <p> {{ingredient.unit}}</p>
+ <button method="GET" action="{{ url_for('ingredient_update') }}">Update ingredient</button>
+  
+{% endblock %}

@@ -63,7 +63,7 @@ def login_required(_func=None, *, role="ANY"):
 # Luetaan kansiosta application tiedoston views sisältö
 from application import views
 
-# Luetaan kansiosta application/tasks tiedoston models sisältö
+# Luetaan kansiosta application/recipes tiedoston models sisältö
 from application.recipes import models
 
 from application.recipes import views
@@ -71,6 +71,9 @@ from application.recipes import views
 # Käyttäjätiedot
 from application.auth import models
 from application.auth import views
+
+from application.ingredients import models
+from application.ingredients import views
 
 
 @login_manager.user_loader

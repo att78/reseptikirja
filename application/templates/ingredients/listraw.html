@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Ingredients listing{% endblock %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Ingredients listed below</th>
+     
+      <th></th>
+    </tr>
+    {% for ingredient in ingredients %}
+    <tr>
+      <td><a href="{{ url_for('ingredient_editform', ingredient_id=ingredient.id) }}">{{ ingredient.name }}</a></td>
+     
+      <td>
+	
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+ 
+{% endblock %}

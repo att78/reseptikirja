@@ -7,6 +7,21 @@
 {% block body %}
 
  <p> {{recipe.description}}</p>
- <button method="GET" action="{{ url_for('recipe_update') }}">Update recipe</button>
-  
+ <a href= "{{ url_for('recipe_editform', recipe_id=recipe.id) }}" class = "button" >Update recipe</a>
+
+
+{% if form.favourite %}
+<form method="POST" action="{{url_for('recipe_remove_favourite', recipe_id=form.id)}}">
+  <p>Remove from favourite here</p>
+  <button type="input" class="btn btn-primary">Remove from favourite</button>
+
+</form>
+{% else %}
+<form method="POST" action="{{url_for('recipe_add_favourite', recipe_id=form.id) }}">
+  <p>Add to favourite here </p>
+  <button type="input" class="btn btn-primary">Add to favourite</button>
+
+</form>
+{% endif %}
+ 
 {% endblock %}

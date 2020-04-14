@@ -9,9 +9,20 @@ from application.auth.models import User
 @app.route("/recipes", methods=["GET"])
 @login_required
 def recipes_index():
-
-
     return render_template("recipes/list.html", recipes = Recipe.query.all(), best_user = Recipe.find_best_user())
+
+@app.route("/recipes/<recipe_id>/show", methods=["GET"])
+@login_required
+def recipe_show_one(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+    form = RecipeForm()
+    form.id = recipe.id
+    account = User.query.get(current_user.id)
+    if recipe in account.favourites:
+        form.favourite = True
+
+    return render_template("recipes/recipe.html", recipe = recipe, form=form)
+
 
 @app.route("/recipes/<recipe_id>/", methods=["GET"])
 @login_required
@@ -24,7 +35,6 @@ def recipe_editform(recipe_id):
     account = User.query.get(current_user.id)
     if recipe in account.favourites:
         form.favourite = True
-
 
     return render_template("recipes/edit.html", form = form)
 
@@ -78,7 +88,7 @@ def recipe_add_favourite(recipe_id):
    
     db.session().commit()
 
-    return redirect(url_for("recipe_update", recipe_id=recipe_id))
+    return redirect(url_for("recipe_show_one", recipe_id=recipe_id))
 
 @app.route("/recipes/<recipe_id>/favourite/remove", methods =["POST"])
 @login_required
@@ -91,7 +101,7 @@ def recipe_remove_favourite(recipe_id):
     db.session().add(account)
     db.session().commit()
 
-    return redirect(url_for("recipe_update", recipe_id=recipe_id))
+    return redirect(url_for("recipe_show_one", recipe_id=recipe_id))
 
 
 @app.route("/recipes/<recipe_id>/remove", methods = ["POST"])
