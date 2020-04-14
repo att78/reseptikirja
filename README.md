@@ -27,6 +27,9 @@ Sovellus löytyy Herokusta. :
 
 Jos aikaa jää, mahdollisesti yritän vielä tehdä shoppailutoiminnon reseptikirjaan.
 
+Sovelluksella on alustava käyttöohje ohessa: 
+[Manuaali](https://github.com/att78/reseptikirja/blob/master/documentation/manual.md)
+
 
 
 
