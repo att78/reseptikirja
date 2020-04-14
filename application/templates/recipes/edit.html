@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-  
+
 <h1> {% block title %}Update recipe{% endblock %}</h1>
 
 {% block body %}
@@ -25,32 +25,34 @@
     <tr>
 
       <td>{{form.description.label}}</td>
-      <td>{{form.description(size=50, maxlength=70)}}</td>
+      <td>{{form.description(size=50, maxlength=10000)}}</td>
     </tr>
     <tr>
       <td colspan="2">
         <input type="submit" value="Update recipe" />
       </td>
     </tr>
+    </tr>
+
 </form>
 
 {% if form.favourite %}
-<form method = "POST" action = "{{url_for('recipe_remove_favourite', recipe_id=form.id)}}">
+<form method="POST" action="{{url_for('recipe_remove_favourite', recipe_id=form.id)}}">
   <p>Remove from favourite here</p>
-  <input type = "submit" value ="remove favourite" />
+  <button type="input" class="btn btn-primary">Remove from favourite</button>
 
 </form>
 {% else %}
-<form method ="POST" action = "{{url_for('recipe_add_favourite', recipe_id=form.id) }}">
+<form method="POST" action="{{url_for('recipe_add_favourite', recipe_id=form.id) }}">
   <p>Add to favourite here </p>
-<input type = "submit" value ="add favourite" />
+  <button type="input" class="btn btn-primary">Add to favourite</button>
 
 </form>
 {% endif %}
 
-<form method = "POST" action = "{{url_for('recipe_remove', recipe_id=form.id)}}">
+<form method="POST" action="{{url_for('recipe_remove', recipe_id=form.id)}}">
   <p>Do you want to remove this recipe?</p>
-<input type = "submit" value = "remove this recipe" />
+  <input type="submit" value="remove this recipe" />
 
 </form>
 

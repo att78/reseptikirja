@@ -75,8 +75,7 @@ def recipe_add_favourite(recipe_id):
     recipe = Recipe.query.get(recipe_id)
     account = User.query.get(current_user.id)
     account.favourites.append(recipe)
-    
-    db.session().add(account)
+   
     db.session().commit()
 
     return redirect(url_for("recipe_update", recipe_id=recipe_id))

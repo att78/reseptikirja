@@ -22,9 +22,8 @@
       </td>
     </tr>
     <tr>
-
       <td>{{form.description.label}}</td>
-      <td>{{form.description(size=30, maxlength=50)}}</td>
+      <td>{{form.description(size=100, maxlength=10000)}}</td>
       <td>
         <ul>
           {% for error in form.description.errors %}
