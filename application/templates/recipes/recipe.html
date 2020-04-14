@@ -7,7 +7,7 @@
 {% block body %}
 
  <p> {{recipe.description}}</p>
- <a href= "{{ url_for('recipe_editform', recipe_id=recipe.id) }}" class = "button" >Update recipe</a>
+ <a href= "{{ url_for('recipe_editform', recipe_id=recipe.id) }}" class = "btn btn-primary" >Update recipe</a>
 
 
 {% if form.favourite %}

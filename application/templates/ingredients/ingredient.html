@@ -7,6 +7,6 @@
 {% block body %}
 
  <p> {{ingredient.unit}}</p>
- <button method="GET" action="{{ url_for('ingredient_update') }}">Update ingredient</button>
-  
+ <button method="GET" action="{{ url_for('ingredient_update') }}" class="btn btn-primary" >Update ingredient</button>
+ 
 {% endblock %}
