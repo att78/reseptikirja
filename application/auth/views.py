@@ -40,11 +40,12 @@ def auth_register():
     
     account = User(form.name.data, form.username.data, form.password.data)
 
-    if User.count() == 0:
+    if db.session.query(User).count() == 0:
         account.set_as_admin()
 
     db.session().add(account)
     db.session().commit()
+
     return redirect(url_for("auth_login"))
 
 
