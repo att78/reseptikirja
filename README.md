@@ -6,7 +6,7 @@ Tarkoitus on luoda reseptikirja, joka pyörii herokussa tai vastaavassa palvelus
 
 Ohessa päivitetty versio arkkitehtuurista: 
 
-![Päivitetty versio arkkitehtuurista](https://github.com/att78/reseptikirja/blob/master/documentation/updated.jpg)
+![Alustava arkkitehtuuri](https://github.com/att78/reseptikirja/blob/master/documentation/viikko5%20update.jpg)
 
 viikko2: tietokantaan voi lisätä reseptin ja reseptiä voi muokata. reseptikirja on viety herokuun ja näyttäisi toimivan siellä.
 
@@ -25,11 +25,7 @@ Sovellus löytyy Herokusta. :
 
 [Reseptikirja herokussa](https://reseptikirja2020.herokuapp.com/)
 
-
-
-Jos aikaa jää, alla olevassa arkkitehtuurikuvauksessa on idea siitä, mihin sitä ylimääräistä aikaa käytetään:
-
-[Alustava arkkitehtuurikuvaus](https://github.com/att78/reseptikirja/blob/master/documentation/Arkkitehtuurikuvaus.md)
+Jos aikaa jää, mahdollisesti yritän vielä tehdä shoppailutoiminnon reseptikirjaan.
 
 
 
