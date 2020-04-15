@@ -4,44 +4,44 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('ingredient_update', ingredient_id=form.id) }}">
-  <table>
-    <tr>
-      <td>
-        {{ form.name.label }}
-      </td>
-      <td>
-        {{ form.name }}
-      </td>
-      <td>
-        <ul>
-          {% for error in form.name.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-      </td>
+    <table>
+        <tr>
+            <td>
+                {{ form.name.label }}
+            </td>
+            <td>
+                {{ form.name }}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
 
 
-    </tr>
-    <tr>
+        </tr>
+        <tr>
 
-      <td>{{form.unit.label}}</td>
-      <td>{{form.unit(size=10, maxlength=10)}}</td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <button type="input" class="btn btn-primary">Update ingredient</button>
-      </td>
-    </tr>
-    </tr>
+            <td>{{form.unit.label}}</td>
+            <td>{{form.unit(size=10, maxlength=10)}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="input" class="btn btn-primary">Update ingredient</button>
+            </td>
+        </tr>
+        </tr>
 
 </form>
 
-
+{% if current_user.is_admin() %}
 <form method="POST" action="{{url_for('ingredient_remove', ingredient_id=form.id)}}">
-  <p>Do you want to remove this ingredient?</p> 
-  <button type="input" class="btn btn-primary">remove this ingredient</button>
+    <p>Do you want to remove this ingredient?</p>
+    <button type="input" class="btn btn-primary">remove this ingredient</button>
 </form>
-
+{% endif %}
 
 
 {% endblock %}

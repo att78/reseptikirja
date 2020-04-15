@@ -72,6 +72,7 @@ from application.recipes import views
 from application.auth import models
 from application.auth import views
 
+#raaka-aineet
 from application.ingredients import models
 from application.ingredients import views
 

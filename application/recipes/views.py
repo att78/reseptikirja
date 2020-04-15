@@ -105,7 +105,7 @@ def recipe_remove_favourite(recipe_id):
 
 
 @app.route("/recipes/<recipe_id>/remove", methods = ["POST"])
-@login_required
+@login_required(role="Admin")
 def recipe_remove(recipe_id):
 
     recipe = Recipe.query.get(recipe_id)

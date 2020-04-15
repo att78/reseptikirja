@@ -19,8 +19,6 @@
           {% endfor %}
         </ul>
       </td>
-
-
     </tr>
     <tr>
 
@@ -36,11 +34,11 @@
 
 </form>
 
-
+{% if current_user.is_admin() %}
 <form method="POST" action="{{url_for('recipe_remove', recipe_id=form.id)}}">
   <p>Do you want to remove this recipe?</p>
   <button type="input" class="btn btn-primary">remove recipe </button>
-
+  {% endif %}
 </form>
 
 
