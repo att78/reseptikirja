@@ -10,41 +10,41 @@
 <form method="POST" action="{{ url_for('auth_register') }}">
   <table>
     <tr>
-        <td>
-      {{ form.name.label }}
-        </td>
-        <td>
-      {{ form.name }}
-        </td>      
-      </tr>
-    <tr>
       <td>
-	{{ form.username.label }}
+        {{ form.name.label }}
       </td>
       <td>
-	{{ form.username }}
+        {{ form.name }}
       </td>
     </tr>
     <tr>
       <td>
-	{{ form.password.label }}
+        {{ form.username.label }}
       </td>
       <td>
-	{{ form.password }}
-      </td>      
+        {{ form.username }}
+      </td>
     </tr>
     <tr>
-        <td>
-      {{ form.password2.label }}
-        </td>
-        <td>
-      {{ form.password2 }}
-        </td>      
-      </tr>
+      <td>
+        {{ form.password.label }}
+      </td>
+      <td>
+        {{ form.password }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.password2.label }}
+      </td>
+      <td>
+        {{ form.password2 }}
+      </td>
+    </tr>
 
     <tr>
       <td colspan="2">
-	<input type="submit" value="Register"/>
+        <button type="input" class="btn btn-primary">Register</button>
       </td>
     </tr>
 </form>
