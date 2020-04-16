@@ -61,7 +61,7 @@ def ingredient_update(ingredient_id):
     form = IngredientForm(request.form)
 
     if not form.validate():
-        return render_template("ingredient/editraw.html/", form = form)
+        return render_template("ingredients/editraw.html/", form = form)
 
     
     ingredient.name = form.name.data
