@@ -37,7 +37,11 @@ def auth_register():
         return render_template("auth/registerform.html", form=RegisterForm())
 
     form = RegisterForm(request.form)
-    
+    ##validointi tähän...
+    if not form.validate():
+        return render_template("auth/registerform.html", form = form)
+
+
     account = User(form.name.data, form.username.data, form.password.data)
 
     if db.session.query(User).count() == 0:
