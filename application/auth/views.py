@@ -41,7 +41,12 @@ def auth_register():
     if not form.validate():
         return render_template("auth/registerform.html", form = form)
 
+    #Työn alla olemassaolevan salasanan rekisteröinnin estäminen.
+     #accounts = User.query.all()
 
+     #for account in accounts:
+     #   if account.username = form.username.data   
+     #       return ""
     account = User(form.name.data, form.username.data, form.password.data)
 
     if db.session.query(User).count() == 0:
