@@ -4,41 +4,36 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('recipe_update', recipe_id=form.id) }}">
-  <table>
-    <tr>
-      <td>
-        {{ form.name.label }}
-      </td>
-      <td>
-        {{ form.name }}
-      </td>
-      <td>
-        <ul>
-          {% for error in form.name.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-      </td>
-    </tr>
-    <tr>
+  <div class="form-group" class="col-sm-2 col-form-label">
+    {{ form.name.label }}
 
-      <td>{{form.description.label}}</td>
-      <td>{{form.description(size=50, maxlength=10000)}}</td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <button type="input" class="btn btn-primary">Update recipe</button>
-      </td>
-    </tr>
-    </tr>
+    <div class="col-sm-10">
+      {{ form.name }}
 
+      {% for error in form.name.errors %}
+      {{ error }}
+      {% endfor %}
+
+    </div>
+  </div>
+  <div class="form-group">
+    {{form.description.label}}
+
+    <div class="col-sm-10">
+      {{form.description(size=50, maxlength=10000)}}
+
+    </div>
+  </div>
+  <button type="input" class="btn btn-primary">Update recipe</button>
 </form>
 
 {% if current_user.is_admin() %}
 <form method="POST" action="{{url_for('recipe_remove', recipe_id=form.id)}}">
-  <p>Do you want to remove this recipe?</p>
-  <button type="input" class="btn btn-primary">remove recipe </button>
-  {% endif %}
+  <div class="form-group">
+    <p>Do you want to remove this recipe?</p>
+    <button type="input" class="btn btn-primary">remove recipe </button>
+    {% endif %}
+  </div>
 </form>
 
 

@@ -54,8 +54,7 @@ def recipe_update(recipe_id):
 
     if not form.validate():
         return render_template("recipes/edit.html/", form = form)
-
-    
+  
     r.name = form.name.data
     r.description = form.description.data
     db.session().commit()

@@ -3,22 +3,15 @@
 {% block title %}Recipes listing{% endblock %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Recipes listed below</th>
-     
-      <th></th>
-    </tr>
+ 
+    <ul>
     {% for recipe in recipes %}
-    <tr>
-      <td><a href="{{ url_for('recipe_show_one', recipe_id=recipe.id) }}">{{ recipe.name }}</a></td>
+
+      <li><a href="{{ url_for('recipe_show_one', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
      
-      <td>
-	
-      </td>
-    </tr>
     {% endfor %}
-  </table>
+  </ul>
+  
     {% if best_user %}
 
     <p>User with most recipes: {{ best_user }}</p>
