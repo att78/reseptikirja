@@ -8,10 +8,10 @@ class Recipe(Base):
     name = db.Column(db.String(144), nullable=False)
     description = db.Column(db.Text, nullable=False)
 
-    
-    
     creator = db.Column(db.Integer, db.ForeignKey('account.id'),
                           nullable=False)
+
+    #ingredients = db.relationship("IngredientInRecipe", backref="recipe", lazy = 'subquery')                    
 
 
     def __init__(self, name, description):

@@ -1,5 +1,6 @@
 from application import app, db, login_manager, login_required
 from flask import redirect, render_template, request, url_for
+from application.recipes.models import Recipe
 from application.ingredients.models import Ingredient
 from application.ingredients.models import IngredientInRecipe
 from application.ingredients.forms import IngredientForm
@@ -84,35 +85,86 @@ def ingredient_remove(ingredient_id):
     return redirect(url_for("ingredients_index"))
 
 
+
 # Raaka-aineen lisääminen reseptiin
 
-@app.route("/recipes/addraw", methods=["POST"])
+@app.route("/recipes/<recipe_id>/addraw", methods=["POST"])
 @login_required
-def recipe_ingredient_create():
+def recipe_ingredient_create(recipe_id):
 
     form = IngredientInRecipeForm(request.form)
-    r = IngredientInRecipe(form.recipe.data,form.ingredient.data,form.amount.data)
+    #näillä validoidaan
+    recipe = Recipe.query.get(recipe_id)
+    ingredient_id = form.ingredient.data
+    ingredient = Ingredient.query.get(ingredient_id)
+    amount = form.amount.data
+    r = IngredientInRecipe(recipe_id,ingredient_id,amount)
     #r.creator = current_user.id
 
-    if not form.validate():
-        return render_template("recipes/edit.html", form = form)
+    #if not form.validate():
+     #   return render_template("recipes/edit.html")
           
     db.session().add(r)
     db.session().commit()
   
-    return redirect(url_for("recipes_update"))
+    return redirect(url_for("recipe_update", recipe_id=recipe_id))
 
 #Raaka-aineen poistaminen reseptistä
 
-@app.route("/recipes/<recipe_id>/remove", methods = ["POST"])
+@app.route("/recipes/<recipe_id>/<ingredient_id>/remove", methods = ["POST"])
 @login_required
-def ingredient_in_recipe_remove(recipe_id, ingredient_id, amount):
+def recipe_ingredient_remove(ingredient_in_recipe_id):
 
-    ingredient_in_recipe = IngredientInRecipe(recipe_id,ingredient_id, amount)
+    ingredient_in_recipe = IngredientInRecipe.query.get(ingredient_in_recipe_id)
     db.session().delete(ingredient_in_recipe)
     db.session().commit()
 
-    return redirect(url_for("recipes_update"))
+    return redirect(url_for("recipe_update", recipe_id=recipe_id))
 
 
 #Reseptissä olevan raaka-aineen muokkaaminen
+
+
+@app.route("/recipes/<recipe_id>/<ingredient_id>/update", methods=["POST"])
+@login_required
+def recipe_ingredient_update(ingredient_in_recipe_id):
+
+    form = IngredientInRecipeForm(request.form)
+    if not form.validate():
+        return render_template("recipes/edit.html/", form = form)
+
+    
+    ingredient_in_recipe = IngredientInRecipe.query.get(ingredient_in_recipe_id)
+    ingredient_in_recipe.amount = form.data.amount
+    db.session().commit()
+  
+    return redirect(url_for("recipes_index"))
+
+
+# Reseptin tarkastelu
+
+@app.route("/recipes/<recipe_id>/setingredients", methods=["GET"])
+@login_required
+def recipe_set_ingredients(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+    ingredients = Ingredient.query.all()
+
+    # reseptissä olevien raaka-aineiden oliot
+    ingredients_in_recipe =IngredientInRecipe.query.filter(IngredientInRecipe.recipe==recipe.id).all()
+    
+    #listaus ei ole callable, mutta toimii, jos vie tuollaista lennosta rakennettua oliota eteenpäin
+    already_added = []
+    for i in ingredients_in_recipe:
+        id_number = i.ingredient
+        amount = i.amount
+        raw =Ingredient.query.get(id_number)
+    #pythonin lentävä olio-hässäkkä. Eli python sallii olioiden luomisen lennosta ilman, että oliolle on luotu muualla luokkaa.     
+        already_added.append({
+            'id': id_number,
+            'amount': amount,
+            'ingredient': raw            
+        })
+
+    #account = User.query.get(current_user.id)
+   
+    return render_template("recipes/addingredients.html", recipe = recipe, ingredients = ingredients, ingredients_in_recipe = ingredients_in_recipe, already_added= already_added)

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}Favourites listing{% endblock %}
+
+{% block body %}
+ 
+    <ul>
+    {% for recipe in my_favourites %}
+
+      <li><a href="{{ url_for('recipe_show_one', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
+     
+    {% endfor %}
+  </ul>
+  
+
+ 
+{% endblock %}

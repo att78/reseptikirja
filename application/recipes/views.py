@@ -115,4 +115,9 @@ def recipe_remove(recipe_id):
     return redirect(url_for("recipes_index"))
 
 
-
+@app.route("/recipes/myfavourites", methods=["GET"])
+@login_required
+def favourites_index():
+    account = User.query.get(current_user.id)
+    my_favourites = account.favourites    
+    return render_template("recipes/favourites.html",  my_favourites = my_favourites)

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block title %}{{recipe.name}}{% endblock %}
+
+
+{% block body %}
+
+{% for added in already_added %}
+<p>{{added.ingredient.name}} {{added.amount}} {{added.ingredient.unit}}</p>
+
+{% endfor %}
+
+<form method="POST" action="{{ url_for('recipe_ingredient_create', recipe_id=recipe.id) }}">
+    <label for="ingredient">Choose an ingredient:</label>
+
+    <select id="ingredient" name="ingredient">
+
+        {% for ingredient in ingredients %}
+        <option value="{{ingredient.id}}">{{ingredient.name}} ({{ingredient.unit}})</option>
+
+        {% endfor %}
+    </select>
+    <label for="amount">Choose amount:</label>
+    <input type="number" id="amount" name="amount" min="1" max="1000000" />
+
+    <button type="input" class="btn btn-primary">Add an ingredient</button>
+
+</form>
+{% endblock %}
