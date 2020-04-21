@@ -4,14 +4,17 @@
 ### Tapaus 1
 Käyttäjälta voi kirjautua sisään. 
 
+
 ### Tapaus 2
 Käyttäjä voi kirjautua ulos. 
 
 ### Tapaus 3
-Käyttäjä voi lisätä raaka-aineita 
+Käyttäjä voi lisätä raaka-aineita
+INSERT INTO Ingredient (name, unit) VALUES ('***','***');
 
 ### Tapaus 4
-Käyttäjä voi lisätä reseptejä tietokantaan. 
+Käyttäjä voi lisätä reseptejä tietokantaan.
+INSERT INTO Recipe (name, description) VALUES ('***','***'); 
 
 ### Tapaus 5
 Käyttäjä voi muokata reseptejä.
@@ -24,9 +27,11 @@ Käyttäjä voi lisätä lempireseptilistaan reseptin.
 
 Käyttäjä voi poistaa reseptejä lempireseptilistasta.
 
+
 ### Tapaus 8
 
 Uusi käyttäjä voi rekisteröityä käyttäjäksi.
+INSERT INTO USER (name, username, password) VALUES ('***', '***','***');
 
 ### Tapaus 9
 
@@ -36,9 +41,39 @@ Käyttäjä voi yhdistää raaka-aineita resepteihin.
 
 Käyttäjä näkee lempireseptinsä listattuna main-sivullaan.
 
+
+
 ### Tapaus 11
 
 Käyttäjä voi poistaa reseptin
+DELETE FROM RECIPE WHERE recipe.id = '*';
 
-Tapaukset 3 ja 9 eivät vielä omaa minkäänlaista toiminnallisuutta, koska raaka-aine- ja raaka-aineet ja reseptit yhdistävät taulut puuttuvat. Tapaus 10 uupuu main-sivuun liittyvän toiminnallisuuden, vaikkakin lempireseptit ovat sinällään tietokannassa monen suhde moneen taulussa. Muihin kohtiin liittyy jo jonkinlainen toiminnallisuus, joskin esimerkiksi validoinnit ovat hyvin puutteelliset.
+### Tapaus 12
 
+Käyttäjä näkee kaikki reseptit listattuna.
+
+SELECT * FROM RECIPE;
+
+### Tapaus 13
+
+Käyttäjä näkee kaikki raaka-aineet listattuna.
+
+SELECT * FROM INGREDIENTS;
+
+### Tapaus 14
+
+Admin näkee kaikki käyttäjät listattuna
+
+SELECT * FROM accounts;
+
+
+### Tapaus 15
+
+Admin voi päättää, ketkä käyttäjät ovat admineja ja ketkä eivät.
+
+
+### Tapaus 16
+
+Admin voi poistaa raaka-aineita
+
+DELETE FROM INGREDIENT where ingredient.id='*';
