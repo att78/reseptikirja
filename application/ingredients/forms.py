@@ -16,9 +16,9 @@ class IngredientForm(FlaskForm):
         csrf = False
 
 class IngredientInRecipeForm(FlaskForm):
-    recipe = IntegerField("Name")
-    ingredient = IntegerField("Ingredient's unit")
-    amount = IntegerField("Amount of ingredient")
+    recipe = IntegerField("Name", [validators.InputRequired(message="Must have input")])
+    ingredient = IntegerField("Ingredient's unit", [validators.InputRequired(message="Must have input")])
+    amount = IntegerField("Amount of ingredient", [validators.InputRequired(message="Must have input")])
     id = 0   
 
     class Meta:

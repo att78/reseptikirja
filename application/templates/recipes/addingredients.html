@@ -7,7 +7,24 @@
 {% block body %}
 
 {% for added in already_added %}
-<p>{{added.ingredient.name}} {{added.amount}} {{added.ingredient.unit}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p>{{added.ingredient.name}} {{added.amount}} {{added.ingredient.unit}}</p>
+        </div>
+
+        <div class="col-sm">
+
+            <form method="POST" action="{{url_for('recipe_ingredient_remove', ingredient_in_recipe_id=added.id, recipe_id =recipe.id)}}">
+                <div class="form-group">
+                  <button type="input" class="btn btn-primary">remove ingredient</button>
+                  
+                </div>
+              </form>
+        </div>
+
+    </div>
+</div>
 
 {% endfor %}
 

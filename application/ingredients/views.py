@@ -111,34 +111,18 @@ def recipe_ingredient_create(recipe_id):
 
 #Raaka-aineen poistaminen reseptistä
 
-@app.route("/recipes/<recipe_id>/<ingredient_id>/remove", methods = ["POST"])
+@app.route("/recipes/<recipe_id>/<ingredient_in_recipe_id>/remove", methods = ["POST"])
 @login_required
-def recipe_ingredient_remove(ingredient_in_recipe_id):
+def recipe_ingredient_remove(ingredient_in_recipe_id,recipe_id):
 
     ingredient_in_recipe = IngredientInRecipe.query.get(ingredient_in_recipe_id)
+    recipe = Recipe.query.get(recipe_id)
+    #recipe_id = ingredient_in_recipe.recipe
+
     db.session().delete(ingredient_in_recipe)
     db.session().commit()
 
-    return redirect(url_for("recipe_update", recipe_id=recipe_id))
-
-
-#Reseptissä olevan raaka-aineen muokkaaminen
-
-
-@app.route("/recipes/<recipe_id>/<ingredient_id>/update", methods=["POST"])
-@login_required
-def recipe_ingredient_update(ingredient_in_recipe_id):
-
-    form = IngredientInRecipeForm(request.form)
-    if not form.validate():
-        return render_template("recipes/edit.html/", form = form)
-
-    
-    ingredient_in_recipe = IngredientInRecipe.query.get(ingredient_in_recipe_id)
-    ingredient_in_recipe.amount = form.data.amount
-    db.session().commit()
-  
-    return redirect(url_for("recipes_index"))
+    return render_template("recipes/addingredients.html", recipe_id= recipe_id, recipe=recipe)
 
 
 # Reseptin tarkastelu
@@ -148,16 +132,16 @@ def recipe_ingredient_update(ingredient_in_recipe_id):
 def recipe_set_ingredients(recipe_id):
     recipe = Recipe.query.get(recipe_id)
     ingredients = Ingredient.query.all()
-
+    form = IngredientInRecipeForm
     # reseptissä olevien raaka-aineiden oliot
     ingredients_in_recipe =IngredientInRecipe.query.filter(IngredientInRecipe.recipe==recipe.id).all()
     
     #listaus ei ole callable, mutta toimii, jos vie tuollaista lennosta rakennettua oliota eteenpäin
     already_added = []
     for i in ingredients_in_recipe:
-        id_number = i.ingredient
+        id_number = i.id
         amount = i.amount
-        raw =Ingredient.query.get(id_number)
+        raw =Ingredient.query.get(i.ingredient)
     #pythonin lentävä olio-hässäkkä. Eli python sallii olioiden luomisen lennosta ilman, että oliolle on luotu muualla luokkaa.     
         already_added.append({
             'id': id_number,
@@ -167,4 +151,5 @@ def recipe_set_ingredients(recipe_id):
 
     #account = User.query.get(current_user.id)
    
-    return render_template("recipes/addingredients.html", recipe = recipe, ingredients = ingredients, ingredients_in_recipe = ingredients_in_recipe, already_added= already_added)
+    return render_template("recipes/addingredients.html", recipe = recipe, ingredients = ingredients, 
+    ingredients_in_recipe = ingredients_in_recipe, already_added= already_added, form=form)
