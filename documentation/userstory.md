@@ -29,7 +29,7 @@ INSERT INTO favourites (account_id,recipe_id) VALUES('account.id','recipe.id');
 ### Tapaus 7
 
 Käyttäjä voi poistaa reseptejä lempireseptilistasta.
-
+DELETE FROM favourites WHERE account_id= '*', recipe_id = 'recipe.id';
 
 ### Tapaus 8
 
