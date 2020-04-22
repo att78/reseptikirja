@@ -3,7 +3,7 @@
 
 ### Tapaus 1
 Käyttäjälta voi kirjautua sisään. 
-
+SELECT id FROM account WHERE username="'", password="'";
 
 ### Tapaus 2
 Käyttäjä voi kirjautua ulos. 
@@ -15,7 +15,6 @@ INSERT INTO Ingredient (name, unit) VALUES ('***','***');
 
 ### Tapaus 4
 Käyttäjä voi lisätä reseptejä tietokantaan.
-
 INSERT INTO Recipe (name, description) VALUES ('***','***'); 
 
 ### Tapaus 5
@@ -84,3 +83,13 @@ Admin voi päättää, ketkä käyttäjät ovat admineja ja ketkä eivät.
 Admin voi poistaa raaka-aineita
 
 DELETE FROM INGREDIENT where ingredient.id='*';
+
+### Tapaus 17
+
+Eniten reseptejä luonut käyttäjä nimetään reseptilistan yhteydessä:
+
+"SELECT COUNT(recipe.id), account.name FROM account"
+                     " LEFT JOIN recipe ON recipe.creator = account.id"
+                     " GROUP BY account.name"
+                     " ORDER BY COUNT(recipe.id) DESC"
+                     " LIMIT 1")
