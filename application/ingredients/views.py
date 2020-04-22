@@ -107,7 +107,7 @@ def recipe_ingredient_create(recipe_id):
     db.session().add(r)
     db.session().commit()
   
-    return redirect(url_for("recipe_update", recipe_id=recipe_id))
+    return redirect(url_for("recipe_set_ingredients", recipe_id=recipe_id))
 
 #Raaka-aineen poistaminen reseptistä
 
@@ -122,7 +122,7 @@ def recipe_ingredient_remove(ingredient_in_recipe_id,recipe_id):
     db.session().delete(ingredient_in_recipe)
     db.session().commit()
 
-    return render_template("recipes/addingredients.html", recipe_id= recipe_id, recipe=recipe)
+    return redirect(url_for("recipe_set_ingredients", recipe_id= recipe_id))
 
 
 # Reseptin tarkastelu

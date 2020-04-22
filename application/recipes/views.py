@@ -5,6 +5,7 @@ from application.recipes.forms import RecipeForm
 #from flask_login import login_required
 from flask_login import current_user
 from application.auth.models import User
+from application.ingredients.models import IngredientInRecipe, Ingredient
 
 @app.route("/recipes", methods=["GET"])
 @login_required
@@ -21,7 +22,26 @@ def recipe_show_one(recipe_id):
     if recipe in account.favourites:
         form.favourite = True
 
-    return render_template("recipes/recipe.html", recipe = recipe, form=form)
+    # reseptissä olevien raaka-aineiden oliot
+    ingredients_in_recipe =IngredientInRecipe.query.filter(IngredientInRecipe.recipe==recipe.id).all()
+       
+    already_added = []
+    for i in ingredients_in_recipe:
+        id_number = i.id
+        amount = i.amount
+        raw =Ingredient.query.get(i.ingredient)
+        
+        already_added.append({
+            'id': id_number,
+            'amount': amount,
+            'ingredient': raw            
+        })
+
+
+
+
+    return render_template("recipes/recipe.html", recipe = recipe, form=form, already_added=already_added, 
+    ingredients_in_recipe = ingredients_in_recipe)
 
 
 @app.route("/recipes/<recipe_id>/", methods=["GET"])

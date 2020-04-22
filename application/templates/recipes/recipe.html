@@ -6,9 +6,18 @@
 
 {% block body %}
 
- <p> {{recipe.description}}</p>
- <a href= "{{ url_for('recipe_editform', recipe_id=recipe.id) }}" class = "btn btn-primary" >Update recipe</a>
- <a href= "{{ url_for('recipe_set_ingredients', recipe_id=recipe.id) }}" class = "btn btn-primary" >Add ingredient</a>
+<h2>Ingredients in recipe</h2>
+{% for added in already_added %}
+
+<p>{{added.ingredient.name}} {{added.amount}} {{added.ingredient.unit}}</p>
+
+{% endfor %}
+
+
+<h2>Recipe's description</h2>
+<p> {{recipe.description}}</p>
+<a href="{{ url_for('recipe_editform', recipe_id=recipe.id) }}" class="btn btn-primary">Update recipe</a>
+<a href="{{ url_for('recipe_set_ingredients', recipe_id=recipe.id) }}" class="btn btn-primary">Add ingredient</a>
 
 
 {% if form.favourite %}
@@ -26,5 +35,5 @@
 {% endif %}
 
 
- 
+
 {% endblock %}
