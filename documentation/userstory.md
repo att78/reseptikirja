@@ -3,7 +3,7 @@
 
 ### Tapaus 1
 Käyttäjälta voi kirjautua sisään. 
-SELECT id FROM account WHERE username="'", password="'";
+SELECT id FROM account WHERE account.name="?", account.password="?";
 
 ### Tapaus 2
 Käyttäjä voi kirjautua ulos. 
@@ -11,11 +11,11 @@ Käyttäjä voi kirjautua ulos.
 ### Tapaus 3
 Käyttäjä voi lisätä raaka-aineita
 
-INSERT INTO Ingredient (name, unit) VALUES ('***','***');
+INSERT INTO Ingredient (name, unit) VALUES ('?','?');
 
 ### Tapaus 4
 Käyttäjä voi lisätä reseptejä tietokantaan.
-INSERT INTO Recipe (name, description) VALUES ('***','***'); 
+INSERT INTO Recipe (name, description) VALUES ('?','?'); 
 
 ### Tapaus 5
 Käyttäjä voi muokata reseptejä.
@@ -29,13 +29,13 @@ INSERT INTO favourites (account_id,recipe_id) VALUES('account.id','recipe.id');
 ### Tapaus 7
 
 Käyttäjä voi poistaa reseptejä lempireseptilistasta.
-DELETE FROM favourites WHERE account_id= '*', recipe_id = 'recipe.id';
+DELETE * FROM favourites WHERE account_id= 'account.id', recipe_id = 'recipe.id';
 
 ### Tapaus 8
 
 Uusi käyttäjä voi rekisteröityä käyttäjäksi.
 
-INSERT INTO USER (name, username, password) VALUES ('***', '***','***');
+INSERT INTO USER (name, username, password) VALUES ('?', '?','?');
 
 ### Tapaus 9
 
@@ -46,13 +46,13 @@ Käyttäjä voi yhdistää raaka-aineita resepteihin.
 
 Käyttäjä näkee lempireseptinsä listattuna main-sivullaan.
 
-SELECT recipe FROM favourites WHERE user.id='*';
+SELECT recipe FROM favourites WHERE user.id='?';
 
 ### Tapaus 11
 
 Käyttäjä voi poistaa reseptin
 
-DELETE FROM RECIPE WHERE recipe.id = '*';
+DELETE FROM RECIPE WHERE recipe.id = '?';
 
 ### Tapaus 12
 
@@ -82,7 +82,7 @@ Admin voi päättää, ketkä käyttäjät ovat admineja ja ketkä eivät.
 
 Admin voi poistaa raaka-aineita
 
-DELETE FROM INGREDIENT where ingredient.id='*';
+DELETE FROM ingredient WHERE ingredient.id='?';
 
 ### Tapaus 17
 
