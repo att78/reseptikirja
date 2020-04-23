@@ -16,6 +16,8 @@ viikko4: sovelluksesssa voi myös poistaa reseptin eli resepteille on nyt täysi
 
 viikko5: sovelluksessa voi lisätä, muokata ja poistaa raaka-aineita. Taustalle on tehty koodia raaka-aineiden lisäämiseksi resepteihin, mutta näitä toiminnallisuuksia ei tule käyttäjälle asti vielä tämän viikon päivitykseen. Sovelluksessa on myös otettu käyttöön autorisointi. Ainoastaan admin-oikeuksilla voi poistaa tietokannasta reseptejä ja raaka-aineita sekä antaa muille admin-oikeuksia. Edellämainittu voi kuulostaa paljolta työltä, mutta todellisuudessa laatu on vienyt enemmän aikaa. Tämän viikon aikana reseptikirja on käynyt läpi ison laadullisen päivityksen. Reseptikirjan validointia on paranneltu, html-koodiin on tehty merkittäviä semanttisia parannuksia ja erilaisia bugeja on metsästetty, löydetty ja korjailtu. bugi-parvesta on varmasti vielä karkuunpäässeitäkin vikkeliä yksilöitä. Sen lisäksi käyttöliittymää on muokattu siten, että käyttäminen olisi johdonmukaista ja selkeää.
 
+viikko6: Sovellukseen on lisätty käyttäjän lempireseptien listaus. Käyttäjä näkee omat lempireseptinsä yhdellä vilkaisulla. Armottoman jumppauksen jälkeen reseptit ja raak-aineet ovat liittyneet nätisti toisiinsa. Ruokaresepteihin voi siis liittää raaka-aineita. Näitä liitoksia voi halutessaan myös muokata ja poistaa. Suuret kokonaisuudet ovat tässä. Viimeiselle viikolle jäi kaikenlaista hiomista, mm. tuon viimeksimainitun suuren kokonaisuuden validointi on vielä "köh köh". Validaattorit tehty, mutta käyttöönotto uupuu. Pientä visuaalista hiomista on jo tehty, mutta kokonaisuuden ulkoasun viimeistely jää suurimmaksi osaksi viikolle 7. HTML-semantiikka on pääosin käyty läpi ja melko toimivaksi todettu. Joitakin yksittäisiä ongelmia saattaa vielä olla.
+ 
 Sovelluksessä on käytössä testi-käyttäjätunnukset adminille ja tavalliselle käyttäjälle.
 Admin:
 ### Account: testiAdmin
@@ -25,7 +27,7 @@ Peruskäyttäjä:
 ### Account: testiBasic
 ### salasana: testiBasic
 
-Samat tunnukset toimivat sekä sovellusta ajettaessa lokaalisti, että herokussa. Sovellukseen voi tehdä halutessaan myös tunnukset ihan itse. Kannattaa kuitenkin huomata, että rekisteröinnin validointi on vielä rajallinen. 
+Samat tunnukset toimivat sekä sovellusta ajettaessa lokaalisti, että herokussa. Sovellukseen voi tehdä halutessaan myös tunnukset ihan itse. Kannattaa kuitenkin huomata, että rekisteröinnin validointi on vieläkin rajallinen. 
 
 Sovellus löytyy Herokusta. :
 
@@ -35,7 +37,6 @@ Sovellus löytyy Herokusta. :
 Sovelluksella on alustava käyttöohje: 
 [Manuaali](https://github.com/att78/reseptikirja/blob/master/documentation/manual.md)
 
-Reseptikirjan seuraavia mahdollisia kehitysvaiheita ovat seuraavat asiat: raaka-aineiden ja reseptien yhdistäminen, lempireseptien listaus ja mahdollisesti shoppailulista. Viimeinen on ainoa ominaisuus, joka vaatisi tietokantaan vielä selkeän muutoksen. Kahteen edelliseen on valmiita palikoita aika hyvin kasassa, kaikki ei näy käyttäjälle.
-
+Tsoha-kurssin jälkeiseen maailmaan jää reseptikirjan shoppailulistan rakentaminen.
 
 
