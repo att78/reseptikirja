@@ -6,15 +6,25 @@
 
 {% block body %}
 
+{% if already_added  %}
+
 <h2>Ingredients in recipe</h2>
+<p> </p>
 {% for added in already_added %}
 
 <p>{{added.ingredient.name}} {{added.amount}} {{added.ingredient.unit}}</p>
 
 {% endfor %}
 
+{% else %}
+<p> </p>
+<p>Ingredients has not been added yet</p>
+
+
+{% endif %}
 
 <h2>Recipe's description</h2>
+<p> </p>
 <p> {{recipe.description}}</p>
 <a href="{{ url_for('recipe_editform', recipe_id=recipe.id) }}" class="btn btn-primary">Update recipe</a>
 <a href="{{ url_for('recipe_set_ingredients', recipe_id=recipe.id) }}" class="btn btn-primary">Add ingredient</a>
@@ -22,12 +32,14 @@
 
 {% if form.favourite %}
 <form method="POST" action="{{url_for('recipe_remove_favourite', recipe_id=form.id)}}">
+  <p> </p>
   <p>Remove from favourite here</p>
   <button type="input" class="btn btn-primary">Remove from favourite</button>
 
 </form>
 {% else %}
 <form method="POST" action="{{url_for('recipe_add_favourite', recipe_id=form.id) }}">
+  <p> </p>
   <p>Add to favourite here </p>
   <button type="input" class="btn btn-primary">Add to favourite</button>
 

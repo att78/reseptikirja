@@ -25,8 +25,7 @@ def ingredient_editform(ingredient_id):
     form = IngredientForm()
     form.name.data = ingredient.name
     form.unit.data = ingredient.unit
-    form.id = ingredient.id
-    #account = User.query.get(current_user.id)
+    form.id = ingredient.id    
     
     return render_template("ingredients/editraw.html", form = form)
 
@@ -100,7 +99,7 @@ def recipe_ingredient_create(recipe_id):
     amount = form.amount.data
     r = IngredientInRecipe(recipe_id,ingredient_id,amount)
     #r.creator = current_user.id
-
+    #validoinnissa jotain säädettävää. Jäänee viimeiselle viikolle
     #if not form.validate():
      #   return render_template("recipes/edit.html")
           
@@ -125,7 +124,7 @@ def recipe_ingredient_remove(ingredient_in_recipe_id,recipe_id):
     return redirect(url_for("recipe_set_ingredients", recipe_id= recipe_id))
 
 
-# Reseptin tarkastelu
+# Reseptin tarkastelu raaka-aineen lisäämistä varten
 
 @app.route("/recipes/<recipe_id>/setingredients", methods=["GET"])
 @login_required
@@ -149,7 +148,6 @@ def recipe_set_ingredients(recipe_id):
             'ingredient': raw            
         })
 
-    #account = User.query.get(current_user.id)
    
     return render_template("recipes/addingredients.html", recipe = recipe, ingredients = ingredients, 
     ingredients_in_recipe = ingredients_in_recipe, already_added= already_added, form=form)
