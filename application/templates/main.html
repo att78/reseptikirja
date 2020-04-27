@@ -7,8 +7,16 @@
 {% block body %}
 <p>
 <p>You are visiting main-page of recipe-book. Use the nav-bar above to choose, what you want to do.</p>
- 
+<p>Check best recipes</p>
 
+<ul>
+    {% for recipe in best_recipes %}
+
+      <li><a href="{{ url_for('recipe_show_one', recipe_id=recipe.id) }}">{{ recipe.name }}, liked {{ recipe.count }} times </a></li>
+     
+    {% endfor %}
+  </ul>
+  
 
 
 

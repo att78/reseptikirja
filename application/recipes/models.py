@@ -11,7 +11,7 @@ class Recipe(Base):
     creator = db.Column(db.Integer, db.ForeignKey('account.id'),
                           nullable=False)
 
-    #ingredients = db.relationship("IngredientInRecipe", backref="recipe", lazy = 'subquery')                    
+                       
 
 
     def __init__(self, name, description):
@@ -36,3 +36,28 @@ class Recipe(Base):
             response = row[1]+space+str(row[0])+")"
         return response    
 
+
+
+    @staticmethod
+    def find_best_recipes():
+        stmt = text("SELECT COUNT(favourites.account_id), recipe.name, recipe.id FROM favourites"
+                    " LEFT JOIN recipe ON recipe.id = favourites.recipe_id"
+                    " GROUP BY recipe.name"
+                    " ORDER BY COUNT(favourites.account_id) DESC"
+                    " LIMIT 3")
+
+        res = db.engine.execute(stmt)
+
+        best_recipes = []
+        for recipe in res:
+            id_number = recipe[2]
+            name = recipe[1]
+            count = recipe[0]
+       
+            best_recipes.append({
+                'id': id_number,
+                'name': name,
+                'count': count            
+            })
+
+        return best_recipes                    
