@@ -2,7 +2,7 @@ from application import app, db, login_manager, login_required
 from flask import redirect, render_template, request, url_for
 from application.recipes.models import Recipe
 from application.recipes.forms import RecipeForm
-#from flask_login import login_required
+
 from flask_login import current_user
 from application.auth.models import User
 from application.ingredients.models import IngredientInRecipe, Ingredient
@@ -128,8 +128,13 @@ def recipe_remove_favourite(recipe_id):
 def recipe_remove(recipe_id):
 
     recipe = Recipe.query.get(recipe_id)
-    db.session().delete(recipe)
+    # reseptissä olevien raaka-aineiden oliot
+    ingredients_in_recipe =IngredientInRecipe.query.filter(IngredientInRecipe.recipe==recipe.id).all()
+    #raaka-aineiden tuhoaminen
+    for i in ingredients_in_recipe:
+        db.session().delete(i)
 
+    db.session().delete(recipe)
     db.session().commit()
 
     return redirect(url_for("recipes_index"))

@@ -5,7 +5,7 @@ from application.ingredients.models import Ingredient
 from application.ingredients.models import IngredientInRecipe
 from application.ingredients.forms import IngredientForm
 from application.ingredients.forms import IngredientInRecipeForm
-#from flask_login import login_required
+
 from flask_login import current_user
 from application.auth.models import User
 
@@ -141,7 +141,7 @@ def recipe_set_ingredients(recipe_id):
         id_number = i.id
         amount = i.amount
         raw =Ingredient.query.get(i.ingredient)
-    #pythonin lentävä olio-hässäkkä. Eli python sallii olioiden luomisen lennosta ilman, että oliolle on luotu muualla luokkaa.     
+    #Huomio itselle: pythonin lentävä olio-hässäkkä. Eli python sallii olioiden luomisen lennosta ilman, että oliolle on luotu muualla luokkaa.     
         already_added.append({
             'id': id_number,
             'amount': amount,

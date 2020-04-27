@@ -33,20 +33,25 @@ def auth_logout():
 
 @app.route("/auth/register", methods = ["GET", "POST"])
 def auth_register():
+    username_already_taken=""
+
     if request.method == "GET":
-        return render_template("auth/registerform.html", form=RegisterForm())
+        return render_template("auth/registerform.html", form=RegisterForm(),username_already_taken = username_already_taken)
 
     form = RegisterForm(request.form)
-    ##validointi tähän...
+   
     if not form.validate():
-        return render_template("auth/registerform.html", form = form)
+        return render_template("auth/registerform.html", form = form, username_already_taken =username_already_taken)
 
-    #Työn alla olemassaolevan salasanan rekisteröinnin estäminen.
-     #accounts = User.query.all()
+    #rekisteröinnissä pitää estää saman usernamen valinta
+    suggested_account_name = form.username.data
+    checked_account = User.query.filter(User.username==suggested_account_name).first()
 
-     #for account in accounts:
-     #   if account.username = form.username.data   
-     #       return ""
+    if checked_account != None:
+        username_already_taken = "Username is already taken. Please pick another one."
+        return render_template("auth/registerform.html", form = form, username_already_taken = username_already_taken)
+
+
     account = User(form.name.data, form.username.data, form.password.data)
 
     if db.session.query(User).count() == 0:
