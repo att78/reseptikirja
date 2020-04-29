@@ -21,32 +21,53 @@ CREATE TABLE account (
 
 
 CREATE TABLE role (
+
 	id INTEGER NOT NULL, 
-	date_created DATETIME, 
-	date_modified DATETIME, 
-	name VARCHAR(144) NOT NULL, 
+	
+	date_created DATETIME,
+	
+	date_modified DATETIME,
+	
+	name VARCHAR(144) NOT NULL,
+	
 	PRIMARY KEY (id)
+	
 )
 
 
 CREATE TABLE userroles (
+
 	role_id INTEGER NOT NULL, 
+	
 	account_id INTEGER NOT NULL, 
+	
 	PRIMARY KEY (role_id, account_id), 
+	
 	FOREIGN KEY(role_id) REFERENCES role (id), 
+	
 	FOREIGN KEY(account_id) REFERENCES account (id)
+	
 )
 
 
 CREATE TABLE recipe (
+
 	id INTEGER NOT NULL, 
+	
 	date_created DATETIME, 
+	
 	date_modified DATETIME, 
+	
 	name VARCHAR(144) NOT NULL, 
+	
 	description TEXT NOT NULL, 
+	
 	creator INTEGER NOT NULL, 
+	
 	PRIMARY KEY (id), 
+	
 	FOREIGN KEY(creator) REFERENCES account (id)
+	
 )
 
 
