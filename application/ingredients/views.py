@@ -98,16 +98,9 @@ def ingredient_remove(ingredient_id):
 def recipe_ingredient_create(recipe_id):
 
     form = IngredientInRecipeForm(request.form)
-    #näillä validoidaan
-    recipe = Recipe.query.get(recipe_id)
-    ingredient_id = form.ingredient.data
-    ingredient = Ingredient.query.get(ingredient_id)
+    ingredient_id = form.ingredient.data   
     amount = form.amount.data
     r = IngredientInRecipe(recipe_id,ingredient_id,amount)
-    #r.creator = current_user.id
-    #validoinnissa jotain säädettävää. Jäänee viimeiselle viikolle
-    #if not form.validate():
-     #   return render_template("recipes/edit.html")
           
     db.session().add(r)
     db.session().commit()
