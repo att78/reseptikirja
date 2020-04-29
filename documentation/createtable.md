@@ -72,34 +72,59 @@ CREATE TABLE recipe (
 
 
 CREATE TABLE ingredient (
+
 	id INTEGER NOT NULL, 
-	date_created DATETIME, 
+	
+	date_created DATETIME,
+	
 	date_modified DATETIME, 
-	name VARCHAR(144) NOT NULL, 
-	unit TEXT NOT NULL, 
+	
+	name VARCHAR(144) NOT NULL,
+	
+	unit TEXT NOT NULL,
+	
 	creator INTEGER NOT NULL, 
-	PRIMARY KEY (id), 
+	
+	PRIMARY KEY (id),
+	
 	FOREIGN KEY(creator) REFERENCES account (id)
+	
 )
 
 
 CREATE TABLE favourites (
+
 	recipe_id INTEGER NOT NULL, 
+	
 	account_id INTEGER NOT NULL, 
+	
 	PRIMARY KEY (recipe_id, account_id), 
+	
 	FOREIGN KEY(recipe_id) REFERENCES recipe (id), 
+	
 	FOREIGN KEY(account_id) REFERENCES account (id)
+
 )
 
 
 CREATE TABLE ingredient_in_recipe (
+
 	id INTEGER NOT NULL, 
-	date_created DATETIME, 
+
+	date_created DATETIME,
+	
 	date_modified DATETIME, 
-	recipe INTEGER NOT NULL, 
+	
+	recipe INTEGER NOT NULL,
+	
 	ingredient INTEGER NOT NULL, 
+	
 	amount INTEGER NOT NULL, 
+	
 	PRIMARY KEY (id), 
-	FOREIGN KEY(recipe) REFERENCES recipe (id), 
+	
+	FOREIGN KEY(recipe) REFERENCES recipe (id),
+	
 	FOREIGN KEY(ingredient) REFERENCES ingredient (id)
+
 )
