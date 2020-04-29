@@ -1,41 +1,61 @@
 # Userstoryt
 
+SQL-lauseissa symboli "?" tarkoittaa käyttäjän antamaa parametria.
+
 
 ### Tapaus 1
 Käyttäjälta voi kirjautua sisään. 
-SELECT id FROM account WHERE account.name="?", account.password="?";
+
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS account_password 
+FROM account 
+WHERE account.username = ? AND account.password = ?
+
 
 ### Tapaus 2
 Käyttäjä voi kirjautua ulos. 
 
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS account_password 
+FROM account 
+WHERE account.id = ?
+
+
 ### Tapaus 3
 Käyttäjä voi lisätä raaka-aineita
 
-INSERT INTO Ingredient (name, unit) VALUES ('?','?');
+INSERT INTO ingredient (date_created, date_modified, name, unit, creator) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?)
+
 
 ### Tapaus 4
 Käyttäjä voi lisätä reseptejä tietokantaan.
-INSERT INTO Recipe (name, description) VALUES ('?','?'); 
+
+INSERT INTO recipe (date_created, date_modified, name, description, creator) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?)
 
 ### Tapaus 5
 Käyttäjä voi muokata reseptejä.
+
+UPDATE recipe SET date_modified=CURRENT_TIMESTAMP, description=? WHERE recipe.id = ?
+
 
 ### Tapaus 6
 
 Käyttäjä voi lisätä lempireseptilistaan reseptin. 
 
-INSERT INTO favourites (account_id,recipe_id) VALUES('account.id','recipe.id');
+INSERT INTO favourites (recipe_id, account_id) VALUES (?, ?)
+
 
 ### Tapaus 7
 
 Käyttäjä voi poistaa reseptejä lempireseptilistasta.
-DELETE * FROM favourites WHERE account_id= 'account.id', recipe_id = 'recipe.id';
+
+DELETE FROM favourites WHERE favourites.recipe_id = ? AND favourites.account_id = ?
+
 
 ### Tapaus 8
 
 Uusi käyttäjä voi rekisteröityä käyttäjäksi.
 
 INSERT INTO USER (name, username, password) VALUES ('?', '?','?');
+
 
 ### Tapaus 9
 
