@@ -56,7 +56,7 @@ def recipe_editform(recipe_id):
     if recipe in account.favourites:
         form.favourite = True
 
-    return render_template("recipes/edit.html", form = form)
+    return render_template("recipes/edit.html", form = form, recipe = recipe)
 
 
 

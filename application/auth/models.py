@@ -58,6 +58,8 @@ class User(Base):
             if role.name == "Admin":
                 del self.userroles[i]
                 break
+   
+
 
 class Role(Base):
 

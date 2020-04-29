@@ -27,8 +27,10 @@
       {% endfor %}
 
     </div>
+    {% if current_user.id == recipe.creator %}
   </div>
   <button type="input" class="btn btn-primary">Update recipe</button>
+  {% endif %}
 </form>
 
 {% if current_user.is_admin() %}

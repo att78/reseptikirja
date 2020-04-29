@@ -77,6 +77,12 @@ def ingredient_update(ingredient_id):
 def ingredient_remove(ingredient_id):
 
     ingredient = Ingredient.query.get(ingredient_id)
+    #Linkkitaulusta poistaminen, TARKISTA TOIMIVUUS VIELÄ
+    ingredient_in_recipes =IngredientInRecipe.query.filter(IngredientInRecipe.ingredient==ingredient.id).all()
+    #linkkitaulun kytkösten tuhoaminen
+    for i in ingredient_in_recipes:
+        db.session().delete(i)
+
     db.session().delete(ingredient)
 
     db.session().commit()
@@ -116,7 +122,6 @@ def recipe_ingredient_remove(ingredient_in_recipe_id,recipe_id):
 
     ingredient_in_recipe = IngredientInRecipe.query.get(ingredient_in_recipe_id)
     recipe = Recipe.query.get(recipe_id)
-    #recipe_id = ingredient_in_recipe.recipe
 
     db.session().delete(ingredient_in_recipe)
     db.session().commit()
