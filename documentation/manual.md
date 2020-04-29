@@ -3,7 +3,7 @@
 ## Sovelluksen käyttöönotto
 Sovelluksen käyttämiseen tarvitaan nettiselain. Sovelluksen käyttämiseen ei tarvitse asentaa mitään käyttäjän koneelle. 
 Reseptikirja pyörii heroku-pilvipalvelussa ja käyttämiseen riittää palveluun rekisteröityminen.
-Rekisteröitymisessä vaaditaan nimi, käyttäjätunnus ja salasanan kirjaaminen kahteen kertaan. Nimi ja käyttäjätunnus saavat olla samat eli käytännössä halutessaan voi rekisteröityä pelkällä käyttäjätunnuksella. Nimen tulee olla vähintään 2 merkkiä ja maksimissaan 50 merkkiä pitkä. Salasanan tulee olla vähintään 3 merkkiä ja maksimissaan 100 merkkiä pitkä.
+Rekisteröitymisessä vaaditaan nimi, käyttäjätunnus ja salasanan kirjaaminen kahteen kertaan. Nimi ja käyttäjätunnus saavat olla samat eli käytännössä halutessaan voi rekisteröityä pelkällä käyttäjätunnuksella. Nimen tulee olla vähintään 2 merkkiä ja maksimissaan 50 merkkiä pitkä. Salasanan tulee olla vähintään 3 merkkiä ja maksimissaan 100 merkkiä pitkä. Rekisteröitymiseen ja sisäänkirjautumiseen ohjataan sivulla, joka toivottaa tervetulleeksi palveluun.
 
 ## Käytön perusteet
 Reseptikirjaa käytetään yläreunan navigointipalkin avulla. Siellä on näkyvissä ne toiminnot, joita käyttäjä voi autorisaatiostaan riippuen käyttää. Käyttäjällä voi olla joko perus tai admin-tason oikeudet. Oletusarvolla rekisteröityvä käyttäjä saa perustason oikeudet. Käyttäjä voi lisätä ja muokata reseptejä ja raaka-aineita, mutta ainoastaan admin voi poistaa niitä. Käyttäjä voi muokata ainoastaan omia reseptejään mutta admin voi poistaa minkä tahansa reseptin. Allaolevassa kuvauksessa eri toimintakokonaisuuksiin liittyen kannattaa muistaa autorisaation rooli.
