@@ -9,8 +9,7 @@ Ohessa päivitetty versio arkkitehtuurista:
 ![Alustava arkkitehtuuri](https://github.com/att78/reseptikirja/blob/master/documentation/viikko5%20update.jpg)
 
 
-
-Tietokannan luovat sql-lauseet on lueteltu omassa tiedostossaan, johon pääsee alla olevasta linkistä.
+Tietokanta on normalisoitu. Tietokannan luovat sql-lauseet on lueteltu omassa tiedostossaan, johon pääsee alla olevasta linkistä. 
 
 [SQL-lauseet tietokannan luomiseksi](https://github.com/att78/reseptikirja/blob/master/documentation/createtable.md)
 
@@ -25,7 +24,7 @@ viikko5: sovelluksessa voi lisätä, muokata ja poistaa raaka-aineita. Taustalle
 
 viikko6: Sovellukseen on lisätty käyttäjän lempireseptien listaus. Käyttäjä näkee omat lempireseptinsä listattuna yhdellä klikkauksella. Armottoman jumppauksen jälkeen reseptit ja raaka-aineet ovat liittyneet nätisti toisiinsa. Ruokaresepteihin voi siis liittää raaka-aineita. Näitä liitoksia voi halutessaan myös muokata ja poistaa. Suuret kokonaisuudet tietokantojen osalta ovat tässä. Viimeiselle viikolle jäi kaikenlaista hiomista, mm. tuon viimeksimainitun suuren kokonaisuuden validointi on vielä "köh köh"-vaiheessa. Validaattorit tehty, mutta käyttöönotto uupuu. Teoriassa se on vain "pari riviä" oikeaan metodiin, mutta jotain ongelmia oli senkin kanssa. Pientä visuaalista hiomista on jo tehty, mutta kokonaisuuden ulkoasun viimeistely jää suurimmaksi osaksi viikolle 7. HTML-semantiikka on pääosin käyty läpi ja melko toimivaksi todettu. Joitakin yksittäisiä ongelmia saattaa vielä olla.
  
-viikko7: bugien korjausta, toinen vaikeahko yhteenvetokysely tuli vielä lisättyä. Autentikoinnin tarkennusta yms. 
+viikko7: bugien korjausta, toinen vaikeahko yhteenvetokysely tuli vielä lisättyä. Autentikoinnin tarkennusta yms viilausta. 
  
  
 Sovelluksessä on käytössä testi-käyttäjätunnukset adminille ja tavalliselle käyttäjälle.
@@ -47,6 +46,8 @@ Sovellus löytyy Herokusta. :
 Sovelluksella on alustava käyttöohje: 
 [Manuaali](https://github.com/att78/reseptikirja/blob/master/documentation/manual.md)
 
-Tsoha-kurssin jälkeiseen maailmaan jää reseptikirjan shoppailulistan rakentaminen.
+Tsoha-kurssin jälkeiseen maailmaan jää reseptikirjan shoppailulistan rakentaminen. 
+
+
 
 
