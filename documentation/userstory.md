@@ -54,12 +54,14 @@ DELETE FROM favourites WHERE favourites.recipe_id = ? AND favourites.account_id 
 
 Uusi käyttäjä voi rekisteröityä käyttäjäksi.
 
-INSERT INTO USER (name, username, password) VALUES ('?', '?','?');
+INSERT INTO account (date_created, date_modified, name, username, password) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?)
 
 
 ### Tapaus 9
 
 Käyttäjä voi yhdistää raaka-aineita resepteihin.
+
+INSERT INTO ingredient_in_recipe (date_created, date_modified, recipe, ingredient, amount) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?)
 
 
 ### Tapaus 10
@@ -68,17 +70,30 @@ Käyttäjä näkee lempireseptinsä listattuna main-sivullaan.
 
 SELECT recipe FROM favourites WHERE user.id='?';
 
+SELECT recipe.id AS recipe_id, recipe.date_created AS recipe_date_created, recipe.date_modified AS recipe_date_modified, recipe.name AS recipe_name, recipe.description AS recipe_description, recipe.creator AS recipe_creator, anon_1.account_id AS anon_1_account_id 
+FROM (SELECT account.id AS account_id 
+FROM account 
+WHERE account.id = ?) AS anon_1 JOIN favourites AS favourites_1 ON anon_1.account_id = favourites_1.account_id JOIN recipe ON recipe.id = favourites_1.recipe_id ORDER BY anon_1.account_id
+
+
 ### Tapaus 11
 
-Käyttäjä voi poistaa reseptin
+Käyttäjä voi poistaa reseptin.
 
-DELETE FROM RECIPE WHERE recipe.id = '?';
+DELETE FROM recipe WHERE recipe.id = ?
+
 
 ### Tapaus 12
 
 Käyttäjä näkee kaikki reseptit listattuna.
 
-SELECT * FROM RECIPE;
+SELECT * FROM recipe
+
+tai sovelluksessa toiminnassa oleva: 
+
+SELECT recipe.id AS recipe_id, recipe.date_created AS recipe_date_created, recipe.date_modified AS recipe_date_modified, recipe.name AS recipe_name, recipe.description AS recipe_description, recipe.creator AS recipe_creator 
+FROM recipe
+
 
 ### Tapaus 13
 
