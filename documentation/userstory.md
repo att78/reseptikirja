@@ -166,3 +166,15 @@ Käyttäjä näkee suosituimmat 3 reseptiä
 
 SELECT COUNT(favourites.account_id), recipe.name, recipe.id FROM favourites LEFT JOIN recipe ON recipe.id = favourites.recipe_id GROUP BY recipe.name ORDER BY COUNT(favourites.account_id) DESC LIMIT 3
 
+
+### Tapaus 20
+
+Admin näkee kaikki käyttäjät listattuna
+
+Teoriassa: 
+SELECT * FROM account
+
+
+Käytännössä
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS account_password 
+FROM account
