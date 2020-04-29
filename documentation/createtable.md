@@ -2,13 +2,21 @@
 
 
 CREATE TABLE account (
+
 	id INTEGER NOT NULL, 
-	date_created DATETIME, 
-	date_modified DATETIME, 
+
+	date_created DATETIME,
+	
+	date_modified DATETIME,
+	
 	name VARCHAR(144) NOT NULL, 
+	
 	username VARCHAR(144) NOT NULL, 
+	
 	password VARCHAR(144) NOT NULL, 
+	
 	PRIMARY KEY (id)
+	
 )
 
 
