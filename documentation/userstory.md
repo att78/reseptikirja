@@ -86,10 +86,12 @@ DELETE FROM recipe WHERE recipe.id = ?
 ### Tapaus 12
 
 Käyttäjä näkee kaikki reseptit listattuna.
+Teoriassa näin: 
 
 SELECT * FROM recipe
 
-tai sovelluksessa toiminnassa oleva: 
+
+Sovelluksessa toiminnassa oleva sql-lause: 
 
 SELECT recipe.id AS recipe_id, recipe.date_created AS recipe_date_created, recipe.date_modified AS recipe_date_modified, recipe.name AS recipe_name, recipe.description AS recipe_description, recipe.creator AS recipe_creator 
 FROM recipe
@@ -101,23 +103,42 @@ Käyttäjä näkee kaikki raaka-aineet listattuna.
 
 SELECT * FROM INGREDIENTS;
 
+
+Sovelluksessa toiminnassa oleva sql-lause:
+
+SELECT ingredient.id AS ingredient_id, ingredient.date_created AS ingredient_date_created, ingredient.date_modified AS ingredient_date_modified, ingredient.name AS ingredient_name, ingredient.unit AS ingredient_unit, ingredient.creator AS ingredient_creator 
+FROM ingredient
+
+
+
 ### Tapaus 14
 
 Admin näkee kaikki käyttäjät listattuna
 
+Teoriassa:
+
 SELECT * FROM accounts;
+
+Sovelluksessa:
+
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS account_password 
+FROM account
 
 
 ### Tapaus 15
 
-Admin voi päättää, ketkä käyttäjät ovat admineja ja ketkä eivät.
+Admin näkee, ketkä käyttäjät ovat admineja ja ketkä eivät.
+
+SELECT role.id AS role_id, role.date_created AS role_date_created, role.date_modified AS role_date_modified, role.name AS role_name, anon_1.account_id AS anon_1_account_id 
+FROM (SELECT account.id AS account_id 
+FROM account) AS anon_1 JOIN userroles AS userroles_1 ON anon_1.account_id = userroles_1.account_id JOIN role ON role.id = userroles_1.role_id ORDER BY anon_1.account_id
 
 
 ### Tapaus 16
 
 Admin voi poistaa raaka-aineita
 
-DELETE FROM ingredient WHERE ingredient.id='?';
+DELETE FROM ingredient WHERE ingredient.id = ?
 
 ### Tapaus 17
 
@@ -128,3 +149,20 @@ Eniten reseptejä luonut käyttäjä nimetään reseptilistan yhteydessä:
                      " GROUP BY account.name"
                      " ORDER BY COUNT(recipe.id) DESC"
                      " LIMIT 1")
+
+
+### Tapaus 18
+
+Admin voi päättää voi vaihtaa käyttäjän roolin.
+
+SELECT role.id AS role_id, role.date_created AS role_date_created, role.date_modified AS role_date_modified, role.name AS role_name 
+FROM role 
+WHERE role.name = ?
+
+
+### Tapaus 19
+
+Käyttäjä näkee suosituimmat 3 reseptiä
+
+SELECT COUNT(favourites.account_id), recipe.name, recipe.id FROM favourites LEFT JOIN recipe ON recipe.id = favourites.recipe_id GROUP BY recipe.name ORDER BY COUNT(favourites.account_id) DESC LIMIT 3
+
