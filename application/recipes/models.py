@@ -42,7 +42,7 @@ class Recipe(Base):
     def find_best_recipes():
         stmt = text("SELECT COUNT(favourites.account_id), recipe.name, recipe.id FROM favourites"
                     " LEFT JOIN recipe ON recipe.id = favourites.recipe_id"
-                    " GROUP BY recipe.name"
+                    " GROUP BY recipe.name, recipe.id"
                     " ORDER BY COUNT(favourites.account_id) DESC"
                     " LIMIT 3")
 
