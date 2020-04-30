@@ -1,6 +1,6 @@
 # Userstoryt
 
-SQL-lauseissa symboli "?" tarkoittaa käyttäjän antamaa parametria.
+SQL-lauseissa symboli "?" tarkoittaa käyttäjän antamaa parametria. Käyttäjätapaukset 17 ja 19 edustavat harjoitustyöhön haluttuja monimutkaisempia sql-lauseita.
 
 
 ### Tapaus 1
@@ -164,8 +164,11 @@ WHERE role.name = ?
 
 Käyttäjä näkee suosituimmat 3 reseptiä
 
-SELECT COUNT(favourites.account_id), recipe.name, recipe.id FROM favourites LEFT JOIN recipe ON recipe.id = favourites.recipe_id GROUP BY recipe.name ORDER BY COUNT(favourites.account_id) DESC LIMIT 3
-
+SELECT COUNT(favourites.account_id), recipe.name, recipe.id FROM favourites"
+                    " LEFT JOIN recipe ON recipe.id = favourites.recipe_id"
+                    " GROUP BY recipe.name, recipe.id"
+                    " ORDER BY COUNT(favourites.account_id) DESC"
+                    " LIMIT 3
 
 ### Tapaus 20
 
