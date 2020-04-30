@@ -1,6 +1,6 @@
 # Userstoryt
 
-SQL-lauseissa symboli "?" tarkoittaa käyttäjän antamaa parametria.
+SQL-lauseissa symboli "?" tarkoittaa käyttäjän antamaa parametria. Käyttäjätapaukset 17 ja 19 edustavat harjoitustyöhön haluttuja monimutkaisempia sql-lauseita.
 
 
 ### Tapaus 1
