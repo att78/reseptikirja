@@ -27,6 +27,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('recipes_form') }}">Add a recipe</a>
         </li>
+        {% if current_user.is_admin() %}
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('ingredients_index') }}">List of ingredients</a>
         </li>
@@ -34,7 +35,7 @@
           <a class="nav-link" href="{{ url_for('ingredients_form') }}">Add an ingredient</a>
         </li>
 
-        {% if current_user.is_admin() %}
+        
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('rights_listing') }}">User listing</a>
         </li>

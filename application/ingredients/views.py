@@ -37,7 +37,7 @@ def ingredients_form():
 
 
 @app.route("/ingredients/", methods=["POST"])
-@login_required
+@login_required(role="Admin")
 def ingredient_create():
 
     form = IngredientForm(request.form)
@@ -54,7 +54,7 @@ def ingredient_create():
 
 
 @app.route("/ingredients/<ingredient_id>/", methods=["POST"])
-@login_required
+@login_required(role="Admin")
 def ingredient_update(ingredient_id):
 
     ingredient = Ingredient.query.get(ingredient_id)
