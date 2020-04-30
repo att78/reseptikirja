@@ -3,10 +3,7 @@ from application.models import Base
 from sqlalchemy.sql import text
 from application.recipes.models import Recipe
 
-#ingredientsInRecipes = db.Table('ingredientsInRecipes',
-#    db.Column('recipe_id', db.Integer, db.ForeignKey('recipe.id'), primary_key=True),
-#    db.Column('ingredient_id', db.Integer, db.ForeignKey('ingredient.id'), primary_key=True)
-#)
+
 
 class Ingredient(Base):
 
