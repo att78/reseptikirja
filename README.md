@@ -6,7 +6,7 @@ Tarkoitus on luoda reseptikirja, joka pyörii herokussa tai vastaavassa palvelus
 
 Ohessa päivitetty versio arkkitehtuurista: 
 
-![Arkkitehtuuri](https://github.com/att78/reseptikirja/blob/master/documentation/viikko7.jpg)
+![Arkkitehtuuri](https://github.com/att78/reseptikirja/blob/master/documentation/englanniksi.jpg)
 
 
 Tietokanta on normalisoitu. Tietokannan luovat sql-lauseet on lueteltu omassa tiedostossaan, johon pääsee alla olevasta linkistä. 
